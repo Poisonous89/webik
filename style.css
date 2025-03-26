@@ -1,0 +1,28 @@
+/*body{
+    background-image: url("images/pozad.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    margin: 0;
+    height: 1081px;
+    width: 1920px;
+}
+.section1{
+    background-image: url("images/pozad3.png");
+    background-position: center;
+    justify-content: center;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: auto;
+    height: 1081px;
+}*/
+.log{
+    justify-content: center;
+    align-self: center;
+    text-align: center;
+    height: 
+}
+.form{
+    align-self: center;
+    justify-content: center;
+    outline: solid 1px;
+}
