@@ -1,3 +1,37 @@
+<?php
+function ala($data){
+    $data = trim($data);
+    $data = stripcslashes($data);
+    $data = htmlspecialchars($data);
+}
+
+if($_SERVER["REQUEST_METHOD"] === 'POST'){
+    if(isset($_POST['email']) && isset($_POST['password1']) && isset($_POST['password2'])&&
+    !empty($_POST['email']) && !empty($_POST['password1']) && !empty($_POST['password2'])){
+        $email = ale($_POST['email']);
+        $password1 = ale($_POST['password1']);
+        $password2 = ale($_POST['password2']);
+        if(mb_strlen($password1)>5){
+            if($password1===$password2){
+                $passwordOver = "hesla sa zhoduju";
+            }
+            else{
+                $passwordOver = "hesla sa nezhoduju";
+            }
+        }
+        else{
+            $passwordOver = "malo znakov v hesle";
+        }
+    }
+    else{
+        $passwordOver = "nieco si zabudol";
+    }
+}
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,23 +43,23 @@
 </head>
 <body>
     <section class="section1" id="section1">
-        <form class="form">
+        <form class="form" action="#" method="POST">
             <fieldset class="Radient">
                <fieldset class="okraj"> 
                 <fieldset class="Field">
                 <h1 class="H1">Your logo</h1>   
                 <h1 class="H1_2">Log in</h1> 
-                <label class="label">Email</label><br>
-                    <input  type="email" placeholder="username@gmail.com" class="input"><br><br>
-                <label class="label">Password</label><br>
-                    <input type="password" placeholder="Password" class="input"><br><br>
-                <label class="label">Password Verification</label><br>
-                    <input type="password" placeholder="Password" class="input"><br>
+                <label for="email" class="label">Email</label><br>
+                    <input  type="email" id="email" name="email" placeholder="username@gmail.com" class="input"><br><br>
+                <label for="password1" class="label">Password</label><br>
+                    <input type="password" id="password1" name="password1" placeholder="Password" class="input"><br><br>
+                <label for="password2" class="label">Password Verification</label><br>
+                    <input type="password" id="password2" name="password2" placeholder="Password" class="input"><br>
         
                         <a href="#" class="btn1">Forgot Password?</a><br><br>
-        
+            <address><?php echo($passwordOver);?></address>
             <div class="Sign"> 
-                <input type="button" value="Sign in" class="btn2">
+                <input type="submit" value="Sign in" class="btn2">
             </div>
             <div class="with">    
                 <p>or continue with</p>
